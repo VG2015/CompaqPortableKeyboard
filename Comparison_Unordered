@@ -1,0 +1,122 @@
+CODE:016e  9aef            ANL         P2,#0xef           23ef            MOV         A,#0xef                                   
+                                                          5d              ANL         A,R5   
+                                                          3a              OUTL        P2,A   
+
+CODE:0170  fd              MOV         A,R5               fd              MOV         A,R5                   
+CODE:0171  53df            ANL         A,#0xdf            53df            ANL         A,#0xdf                        
+CODE:0172                                                  
+CODE:0173  ad              MOV         R5,A                ad              MOV         R5,A                                                             
+CODE:0174  f1              MOV         A,@R1               f1              MOV         A,@R1                      
+CODE:0175  47              SWAP        A                   47              SWAP        A                                                             
+CODE:0176  e7              RL          A                   e7              RL          A                     
+CODE:0177  a1              MOV         @R1,A               a1              MOV         @R1,A                           
+CODE:0178  5320            ANL         A,#0x20             5320            ANL         A,#0x20                          
+CODE:0179                                                  
+CODE:017a  4d              ORL         A,R5                4d              ORL         A,R5                   
+CODE:017b  3a              OUTL        P2,A                3a              OUTL        P2,A                     
+
+
+CODE:017c  f1              MOV         A,@R1              53ef            ANL         A,#0xef               
+CODE:017d  9aef            ANL         P2,#0xef           3a              OUTL        P2,A
+                                                          f1              MOV         A,@R1    
+                                                          
+CODE:017f  77              RR          A                  77              RR          A                     
+CODE:0180  a1              MOV         @R1,A              a1              MOV         @R1,A                     
+CODE:0181  5320            ANL         A,#0x20            5320            ANL         A,#0x20                      
+CODE:0183  4d              ORL         A,R5               4d              ORL         A,R5              
+CODE:0184  3a              OUTL        P2,A               3a              OUTL        P2,A                    
+
+CODE:0185  f1              MOV         A,@R1                                   
+CODE:0186  9aef            ANL         P2,#0xef           53ef            ANL         A,#0xef                              
+                                                          3a              OUTL        P2,A 
+                                                          f1              MOV         A,@R1 
+
+CODE:0188  77              RR          A                  77              RR          A                                                      
+CODE:0189  a1              MOV         @R1,A              a1              MOV         @R1,A                      
+CODE:018a  5320            ANL         A,#0x20            5320            ANL         A,#0x20                        
+CODE:018c  4d              ORL         A,R5               4d              ORL         A,R5                            
+CODE:018d  3a              OUTL        P2,A               3a              OUTL        P2,A                          
+
+CODE:018e  f1              MOV         A,@R1                                   
+CODE:018f  9aef            ANL         P2,#0xef           53ef            ANL         A,#0xef                    
+                                                          3a              OUTL        P2,A 
+                                                          f1              MOV         A,@R1 
+
+CODE:0191  77              RR          A                  77              RR          A                            
+CODE:0192  a1              MOV         @R1,A              a1              MOV         @R1,A                      
+CODE:0193  5320            ANL         A,#0x20            5320            ANL         A,#0x20                 
+                                                 
+CODE:0195  4d              ORL         A,R5                                       
+CODE:0196  3a              OUTL        P2,A                                 
+
+CODE:0197  f1              MOV         A,@R1                                          
+CODE:0198  9aef            ANL         P2,#0xef                                     
+CODE:0199                                               
+CODE:019a  77              RR          A                  4d              ORL         A,R5                         
+CODE:019b  a1              MOV         @R1,A              3a              OUTL        P2,A                      
+CODE:019c  5320            ANL         A,#0x20            53ef            ANL         A,#0xef                 
+CODE:019d                                            
+CODE:019e  4d              ORL         A,R5               3a              OUTL        P2,A                         
+CODE:019f  3a              OUTL        P2,A               f1              MOV         A,@R1                      
+CODE:01a0  f1              MOV         A,@R1              
+CODE:01a1  9aef            ANL         P2,#0xef  
+
+
+                                                          77              RR          A                      
+                                                          a1              MOV         @R1,A              
+                                                          5320            ANL         A,#0x20
+CODE:01a3  77              RR          A                                       
+CODE:01a4  a1              MOV         @R1,A                                       
+CODE:01a5  5320            ANL         A,#0x20                                     
+CODE:01a6                                                   
+
+                                                          4d              ORL         A,R5
+                                                          3a              OUTL        P2,A
+                                                          53ef            ANL         A,#0xef
+CODE:01a7  4d              ORL         A,R5                                    
+CODE:01a8  3a              OUTL        P2,A               3a              OUTL        P2,A                          
+CODE:01a9  f1              MOV         A,@R1              f1              MOV         A,@R1                        
+CODE:01aa  9aef            ANL         P2,#0xef           
+
+                                                          77              RR          A                           
+CODE:01ab                                                 a1              MOV         @R1,A   
+CODE:01ac  77              RR          A                  5320            ANL         A,#0x20                  
+CODE:01ad  a1              MOV         @R1,A                                   
+CODE:01ae  5320            ANL         A,#0x20            
+
+                                                          4d              ORL         A,R5                    
+CODE:01af                                                 3a              OUTL        P2,A       
+CODE:01b0  4d              ORL         A,R5               53ef            ANL         A,#0xef                            
+CODE:01b1  3a              OUTL        P2,A                                    
+CODE:01b2  f1              MOV         A,@R1              3a              OUTL        P2,A                             
+CODE:01b3  9aef            ANL         P2,#0xef           f1              MOV         A,@R1                          
+CODE:01b4                                                 77              RR          A        
+CODE:01b5  77              RR          A                  a1              MOV         @R1,A                         
+CODE:01b6  a1              MOV         @R1,A              5320            ANL         A,#0x20                        
+CODE:01b7  5320            ANL         A,#0x20                          
+CODE:01b8                                                 4d              ORL         A,R5     
+CODE:01b9  4d              ORL         A,R5               3a              OUTL        P2,A                             
+CODE:01ba  3a              OUTL        P2,A               53ef            ANL         A,#0xef                           
+CODE:01bb  f1              MOV         A,@R1                               
+CODE:01bc  9aef            ANL         P2,#0xef           3a              OUTL        P2,A                       
+CODE:01bd                                                 f1              MOV         A,@R1    
+CODE:01be  77              RR          A                  77              RR          A                              
+CODE:01bf  47              SWAP        A                  a1              MOV         @R1,A                           
+CODE:01c0  a1              MOV         @R1,A              5320            ANL         A,#0x20                         
+CODE:01c1  2330            MOV         A,#0x30                                 
+CODE:01c2                                                 4d              ORL         A,R5     
+CODE:01c3  8a30            ORL         P2,#0x30           3a              OUTL        P2,A                               
+CODE:01c4                                                 53ef            ANL         A,#0xef  
+CODE:01c5  4d              ORL         A,R5                                    
+CODE:01c6  ad              MOV         R5,A               3a              OUTL        P2,A    
+CODE:01c7  c5              SEL         RB0                f1              MOV         A,@R1                                   
+CODE:01c8  fd              MOV         A,R5               77              RR          A                                       
+CODE:01c9  12ce            JB0x0       LAB_CODE_01ce      47              SWAP        A                                       
+CODE:01ca                                                 a1              MOV         @R1,A                                   
+CODE:01cb                                                 2330            MOV         A,#0x30                                 
+CODE:01cd                                                 4d              ORL         A,R5                                    
+CODE:01ce                                                 3a              OUTL        P2,A                                    
+CODE:01cf                                                 ad              MOV         R5,A                                    
+CODE:01d0                                                 c5              SEL         RB0                                     
+CODE:01d1                                                 fd              MOV         A,R5                                    
+CODE:01d2                                                 12d7            JB0x0       LAB_CODE_01d7 
