@@ -5,11 +5,10 @@ the layout is the same, with some chips moved around. The 8048 (PCB 201 Cc) has 
 lINE:XXXX              8048                    2516
 
 //Only difference between lines 0000-016b are the different names for same subroutine,
-FUN_CODE_01e7 and FUN_CODE_01f6. They are the same, just placed in different spots in memory.
+FUN_CODE_01e7 and FUN_CODE_01f6. They are the same, just placed in different spots in memory.//
 CODE:0061              34e7                    34f6
 
 CODE:006b              34e7                    34f6
-//
 
 CODE:016e  9aef            ANL         P2,#0xef           23ef            MOV         A,#0xef                                   
 CODE:0170  fd              MOV         A,R5               5d              ANL         A,R5                       
@@ -99,9 +98,9 @@ CODE:01c3  8a30            ORL         P2,#0x30           3a              OUTL  
 CODE:01c4                                                 53ef            ANL         A,#0xef  
 CODE:01c5  4d              ORL         A,R5                                    
 CODE:01c6  ad              MOV         R5,A               3a              OUTL        P2,A    
-CODE:01c7   c5              SEL         RB0               f1              MOV         A,@R1                                   
-CODE:01c8    fd              MOV         A,R5                                          77              RR          A                                       
-CODE:01c9    12ce            JB0x0       LAB_CODE_01ce                                          47              SWAP        A                                       
+CODE:01c7  c5              SEL         RB0                f1              MOV         A,@R1                                   
+CODE:01c8  fd              MOV         A,R5               77              RR          A                                       
+CODE:01c9  12ce            JB0x0       LAB_CODE_01ce      47              SWAP        A                                       
 CODE:01ca                                                 a1              MOV         @R1,A                                   
 CODE:01cb                                                 2330            MOV         A,#0x30                                 
 CODE:01cd                                                 4d              ORL         A,R5                                    
