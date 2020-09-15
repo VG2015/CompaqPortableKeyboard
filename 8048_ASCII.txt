@@ -1,0 +1,1259 @@
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;undefined RESET()
+                                                          ;XREF[1,0]:   Entry Point
+CODE:CODE:0000  27              CLR         A                                       
+CODE:CODE:0001  043c            JMP         LAB_CODE_003c                           
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;undefined EXTIRQ()
+                                                          ;XREF[1,0]:   Entry Point
+CODE:CODE:0003  00              NOP                                                  
+CODE:CODE:0004  00              NOP                                                  
+CODE:CODE:0005  00              NOP                                                  
+CODE:CODE:0006  00              NOP                                                  
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;undefined TIMIRQ()
+                                                          ;XREF[1,0]:   Entry Point
+CODE:CODE:0007  d5              SEL         RB1                                     
+CODE:CODE:0008  aa              MOV         R2,A                                    
+CODE:CODE:0009  23a0            MOV         A,#0xa0                                 
+CODE:CODE:000b  62              MOV         T,A                                     
+CODE:CODE:000c  fc              MOV         A,R4                                    
+CODE:CODE:000d  d355            XRL         A,#0x55                                 
+CODE:CODE:000f  962b            JNZ         LAB_CODE_002b                           
+CODE:CODE:0011  bcaa            MOV         R4,#0xaa                                
+CODE:CODE:0013  27              CLR         A                                       
+                            LAB_CODE_0014:                ;XREF[1,0]:   CODE:0019
+CODE:CODE:0014  8618            JNI         LAB_CODE_0018                           
+CODE:CODE:0016  0423            JMP         LAB_CODE_0023                           
+                            LAB_CODE_0018:                ;XREF[1,0]:   CODE:0014
+CODE:CODE:0018  07              DEC         A                                       
+CODE:CODE:0019  9614            JNZ         LAB_CODE_0014                           
+CODE:CODE:001b  65              STOP        TCNT                                    
+                            LAB_CODE_001c:                ;XREF[1,0]:   CODE:001c
+CODE:CODE:001c  861c            JNI         LAB_CODE_001c                           
+CODE:CODE:001e  c5              SEL         RB0                                     
+CODE:CODE:001f  043c            JMP         LAB_CODE_003c                           
+                            LAB_CODE_0021:                ;XREF[1,0]:   CODE:0029
+CODE:CODE:0021  fa              MOV         A,R2                                    
+CODE:CODE:0022  93              RETR                                                 
+                            LAB_CODE_0023:                ;XREF[1,0]:   CODE:0016
+CODE:CODE:0023  c5              SEL         RB0                                     
+CODE:CODE:0024  fd              MOV         A,R5                                    
+CODE:CODE:0025  53fe            ANL         A,#0xfe                                 
+CODE:CODE:0027  ad              MOV         R5,A                                    
+CODE:CODE:0028  d5              SEL         RB1                                     
+CODE:CODE:0029  0421            JMP         LAB_CODE_0021                           
+                            LAB_CODE_002b:                ;XREF[1,0]:   CODE:000f
+CODE:CODE:002b  35              DIS         TCNTI                                   
+CODE:CODE:002c  15              DIS         I                                       
+CODE:CODE:002d  89ff            ORL         P1,#0xff                                
+CODE:CODE:002f  8aff            ORL         P2,#0xff                                
+CODE:CODE:0031  80              MOVX        A,@R0                                   
+CODE:CODE:0032  27              CLR         A                                       
+CODE:CODE:0033  d7              MOV         PSW,A                                   
+CODE:CODE:0034  a5              CLR         F1                                      
+CODE:CODE:0035  1637            JTF         LAB_CODE_0037                           
+                            LAB_CODE_0037:                ;XREF[1,0]:   CODE:0035
+                                                          ; FWD[2,0]:   CODE:003b,INTMEM:08
+CODE:CODE:0037  143b            CALL        FUN_CODE_003b                           ;undefined FUN_CODE_003b()
+                                                                                    ;= ??
+CODE:CODE:0039  043c            JMP         LAB_CODE_003c                           
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;undefined FUN_CODE_003b()
+                                                          ;XREF[1,0]:   CODE:0037
+CODE:CODE:003b  93              RETR                                                 
+                            LAB_CODE_003c:                ;XREF[3,0]:   CODE:0001,CODE:001f,CODE:0039
+CODE:CODE:003c  b83f            MOV         R0,#0x3f                                
+                            LAB_CODE_003e:                ;XREF[1,0]:   CODE:003f
+                                                          ; FWD[2,0]:   INTMEM:3e,INTMEM:3f
+CODE:CODE:003e  a0              MOV         @R0=>INTMEM:DAT_INTMEM_3f,A             ;= ??
+CODE:CODE:003f  e83e            DJNZ        R0,LAB_CODE_003e                        
+CODE:CODE:0041  b910            MOV         R1,#0x10                                
+CODE:CODE:0043  b81f            MOV         R0,#0x1f                                
+CODE:CODE:0045  23a0            MOV         A,#0xa0                                 
+CODE:CODE:0047  62              MOV         T,A                                     
+CODE:CODE:0048  55              STRT        T                                       
+CODE:CODE:0049  25              EN          TCNTI                                   
+CODE:CODE:004a  d5              SEL         RB1                                     
+CODE:CODE:004b  bdf0            MOV         R5,#0xf0                                
+CODE:CODE:004d  be2c            MOV         R6,#0x2c                                
+CODE:CODE:004f  bf2c            MOV         R7,#0x2c                                
+CODE:CODE:0051  c5              SEL         RB0                                     
+CODE:CODE:0052  23aa            MOV         A,#0xaa                                 
+CODE:CODE:0054  5400            CALL        FUN_CODE_0200                           ;undefined FUN_CODE_0200()
+                            LAB_CODE_0056:                ;XREF[3,0]:   CODE:0063,CODE:0071,CODE:0082
+CODE:CODE:0056  18              INC         R0                                      
+                            LAB_CODE_0057:                ;XREF[1,0]:   CODE:0133
+CODE:CODE:0057  25              EN          TCNTI                                   
+CODE:CODE:0058  d5              SEL         RB1                                     
+CODE:CODE:0059  bc55            MOV         R4,#0x55                                
+CODE:CODE:005b  c5              SEL         RB0                                     
+CODE:CODE:005c  23d5            MOV         A,#0xd5                                 
+CODE:CODE:005e  68              ADD         A,R0                                    
+CODE:CODE:005f  f6fe            JC          LAB_CODE_00fe                           
+CODE:CODE:0061  34e7            CALL        FUN_CODE_01e7                           ;undefined FUN_CODE_01e7()
+CODE:CODE:0063  c656            JZ          LAB_CODE_0056                           
+CODE:CODE:0065  ab              MOV         R3,A                                    
+CODE:CODE:0066  ba28            MOV         R2,#0x28                                
+                            LAB_CODE_0068:                ;XREF[1,0]:   CODE:0068
+CODE:CODE:0068  ea68            DJNZ        R2,LAB_CODE_0068                        
+CODE:CODE:006a  3c              MOVD        P4=>PORT:P4,A                           ;= ??
+CODE:CODE:006b  34e7            CALL        FUN_CODE_01e7                           ;undefined FUN_CODE_01e7()
+CODE:CODE:006d  99fe            ANL         P1,#0xfe                                
+CODE:CODE:006f  3c              MOVD        P4=>PORT:P4,A                           ;= ??
+CODE:CODE:0070  5b              ANL         A,R3                                    
+CODE:CODE:0071  c656            JZ          LAB_CODE_0056                           
+CODE:CODE:0073  ab              MOV         R3,A                                    
+CODE:CODE:0074  ba01            MOV         R2,#0x1                                 
+CODE:CODE:0076  f8              MOV         A,R0                                    
+CODE:CODE:0077  47              SWAP        A                                       
+CODE:CODE:0078  77              RR          A                                       
+CODE:CODE:0079  5378            ANL         A,#0x78                                 
+CODE:CODE:007b  af              MOV         R7,A                                    
+CODE:CODE:007c  fa              MOV         A,R2                                    
+                            LAB_CODE_007d:                ;XREF[1,0]:   CODE:0088
+CODE:CODE:007d  5b              ANL         A,R3                                    
+CODE:CODE:007e  968a            JNZ         LAB_CODE_008a                           
+                            LAB_CODE_0080:                ;XREF[4,0]:   CODE:00be,CODE:00c2,CODE:00d2,CODE:00f0
+CODE:CODE:0080  c5              SEL         RB0                                     
+CODE:CODE:0081  fb              MOV         A,R3                                    
+CODE:CODE:0082  c656            JZ          LAB_CODE_0056                           
+CODE:CODE:0084  fa              MOV         A,R2                                    
+CODE:CODE:0085  e7              RL          A                                       
+CODE:CODE:0086  aa              MOV         R2,A                                    
+CODE:CODE:0087  1f              INC         R7                                      
+CODE:CODE:0088  047d            JMP         LAB_CODE_007d                           
+                            LAB_CODE_008a:                ;XREF[1,0]:   CODE:007e
+CODE:CODE:008a  d5              SEL         RB1                                     
+CODE:CODE:008b  fe              MOV         A,R6                                    
+CODE:CODE:008c  c5              SEL         RB0                                     
+CODE:CODE:008d  c6fe            JZ          LAB_CODE_00fe                           
+CODE:CODE:008f  fa              MOV         A,R2                                    
+CODE:CODE:0090  37              CPL         A                                       
+CODE:CODE:0091  5b              ANL         A,R3                                    
+CODE:CODE:0092  ab              MOV         R3,A                                    
+CODE:CODE:0093  fa              MOV         A,R2                                    
+CODE:CODE:0094  50              ANL         A,@R0=>INTMEM:DAT_INTMEM_20             ;= ??
+CODE:CODE:0095  96ca            JNZ         LAB_CODE_00ca                           
+CODE:CODE:0097  fa              MOV         A,R2                                    
+CODE:CODE:0098  d0              XRL         A,@R0=>INTMEM:DAT_INTMEM_20             ;= ??
+CODE:CODE:0099  a0              MOV         @R0=>INTMEM:DAT_INTMEM_20,A             ;= ??
+CODE:CODE:009a  ff              MOV         A,R7                                    
+CODE:CODE:009b  a1              MOV         @R1=>STACK:DAT_INTMEM_10,A              ;= ??
+CODE:CODE:009c  f9              MOV         A,R1                                    
+CODE:CODE:009d  17              INC         A                                       
+CODE:CODE:009e  5317            ANL         A,#0x17                                 
+CODE:CODE:00a0  a9              MOV         R1,A                                    
+CODE:CODE:00a1  ff              MOV         A,R7                                    
+CODE:CODE:00a2  d321            XRL         A,#0x21                                 
+CODE:CODE:00a4  96aa            JNZ         LAB_CODE_00aa                           
+CODE:CODE:00a6  fd              MOV         A,R5                                    
+CODE:CODE:00a7  d310            XRL         A,#0x10                                 
+CODE:CODE:00a9  ad              MOV         R5,A                                    
+                            LAB_CODE_00aa:                ;XREF[1,0]:   CODE:00a4
+CODE:CODE:00aa  ff              MOV         A,R7                                    
+CODE:CODE:00ab  d320            XRL         A,#0x20                                 
+CODE:CODE:00ad  96b3            JNZ         LAB_CODE_00b3                           
+CODE:CODE:00af  fd              MOV         A,R5                                    
+CODE:CODE:00b0  d308            XRL         A,#0x8                                  
+CODE:CODE:00b2  ad              MOV         R5,A                                    
+                            LAB_CODE_00b3:                ;XREF[1,0]:   CODE:00ad
+CODE:CODE:00b3  ff              MOV         A,R7                                    
+CODE:CODE:00b4  ac              MOV         R4,A                                    
+CODE:CODE:00b5  76c4            JF1         LAB_CODE_00c4                           
+CODE:CODE:00b7  e3              MOVP3       A,@A=>DAT_CODE_0300                     
+                            LAB_CODE_00b8:                ;XREF[1,0]:   CODE:00c8
+CODE:CODE:00b8  5400            CALL        FUN_CODE_0200                           ;undefined FUN_CODE_0200()
+CODE:CODE:00ba  d5              SEL         RB1                                     
+CODE:CODE:00bb  fd              MOV         A,R5                                    
+CODE:CODE:00bc  32c0            JB0x1       LAB_CODE_00c0                           
+CODE:CODE:00be  0480            JMP         LAB_CODE_0080                           
+                            LAB_CODE_00c0:                ;XREF[1,0]:   CODE:00bc
+CODE:CODE:00c0  bb32            MOV         R3,#0x32                                
+CODE:CODE:00c2  0480            JMP         LAB_CODE_0080                           
+                            LAB_CODE_00c4:                ;XREF[1,0]:   CODE:00b5
+CODE:CODE:00c4  39              OUTL        P1,A                                    
+CODE:CODE:00c5  9afe            ANL         P2,#0xfe                                
+CODE:CODE:00c7  80              MOVX        A,@R0=>DAT_EXTMEM_20                    
+CODE:CODE:00c8  04b8            JMP         LAB_CODE_00b8                           
+                            LAB_CODE_00ca:                ;XREF[1,0]:   CODE:0095
+CODE:CODE:00ca  f9              MOV         A,R1                                    
+CODE:CODE:00cb  ae              MOV         R6,A                                    
+                            LAB_CODE_00cc:                ;XREF[1,0]:   CODE:00da
+CODE:CODE:00cc  ff              MOV         A,R7                                    
+                                                          ; FWD[2,0]:   INTMEM:10,INTMEM:11
+CODE:CODE:00cd  d1              XRL         A,@R1=>STACK:DAT_INTMEM_10              ;= ??
+CODE:CODE:00ce  96d4            JNZ         LAB_CODE_00d4                           
+CODE:CODE:00d0  fe              MOV         A,R6                                    
+CODE:CODE:00d1  a9              MOV         R1,A                                    
+CODE:CODE:00d2  0480            JMP         LAB_CODE_0080                           
+                            LAB_CODE_00d4:                ;XREF[1,0]:   CODE:00ce
+CODE:CODE:00d4  f9              MOV         A,R1                                    
+CODE:CODE:00d5  17              INC         A                                       
+CODE:CODE:00d6  5317            ANL         A,#0x17                                 
+CODE:CODE:00d8  a9              MOV         R1,A                                    
+CODE:CODE:00d9  de              XRL         A,R6                                    
+CODE:CODE:00da  96cc            JNZ         LAB_CODE_00cc                           
+CODE:CODE:00dc  fa              MOV         A,R2                                    
+CODE:CODE:00dd  d0              XRL         A,@R0=>INTMEM:DAT_INTMEM_20             ;= ??
+CODE:CODE:00de  a0              MOV         @R0=>INTMEM:DAT_INTMEM_20,A             ;= ??
+CODE:CODE:00df  ff              MOV         A,R7                                    
+CODE:CODE:00e0  dc              XRL         A,R4                                    
+CODE:CODE:00e1  96e8            JNZ         LAB_CODE_00e8                           
+CODE:CODE:00e3  d5              SEL         RB1                                     
+CODE:CODE:00e4  ab              MOV         R3,A                                    
+CODE:CODE:00e5  c5              SEL         RB0                                     
+CODE:CODE:00e6  37              CPL         A                                       
+CODE:CODE:00e7  ac              MOV         R4,A                                    
+                            LAB_CODE_00e8:                ;XREF[1,0]:   CODE:00e1
+CODE:CODE:00e8  ff              MOV         A,R7                                    
+CODE:CODE:00e9  76f2            JF1         LAB_CODE_00f2                           
+CODE:CODE:00eb  e3              MOVP3       A,@A=>DAT_CODE_0300                     
+CODE:CODE:00ec  4380            ORL         A,#0x80                                 
+                            LAB_CODE_00ee:                ;XREF[1,0]:   CODE:00f6
+CODE:CODE:00ee  5400            CALL        FUN_CODE_0200                           ;undefined FUN_CODE_0200()
+CODE:CODE:00f0  0480            JMP         LAB_CODE_0080                           
+                            LAB_CODE_00f2:                ;XREF[1,0]:   CODE:00e9
+CODE:CODE:00f2  39              OUTL        P1,A                                    
+CODE:CODE:00f3  8a01            ORL         P2,#0x1                                 
+CODE:CODE:00f5  80              MOVX        A,@R0=>DAT_EXTMEM_20                    
+CODE:CODE:00f6  04ee            JMP         LAB_CODE_00ee                           
+CODE:CODE:00f8  00              ??          00h                                     
+CODE:CODE:00f9  00              ??          00h                                     
+CODE:CODE:00fa  00              ??          00h                                     
+CODE:CODE:00fb  00              ??          00h                                     
+CODE:CODE:00fc  00              ??          00h                                     
+CODE:CODE:00fd  00              ??          00h                                     
+                            LAB_CODE_00fe:                ;XREF[2,0]:   CODE:005f,CODE:008d
+CODE:CODE:00fe  2400            JMP         LAB_CODE_0100                           
+                            LAB_CODE_0100:                ;XREF[1,0]:   CODE:00fe
+CODE:CODE:0100  1635            JTF         LAB_CODE_0135                           
+CODE:CODE:0102  00              NOP                                                  
+CODE:CODE:0103  00              NOP                                                  
+                            LAB_CODE_0104:                ;XREF[4,0]:   CODE:0158,CODE:015a,CODE:015c,CODE:01cc
+CODE:CODE:0104  d5              SEL         RB1                                     
+CODE:CODE:0105  fd              MOV         A,R5                                    
+CODE:CODE:0106  430f            ORL         A,#0xf                                  
+CODE:CODE:0108  3a              OUTL        P2,A                                    
+CODE:CODE:0109  0a              IN          A,P2=>PORT:P2                           ;= ??
+CODE:CODE:010a  43c0            ORL         A,#0xc0                                 
+CODE:CODE:010c  ad              MOV         R5,A                                    
+CODE:CODE:010d  c5              SEL         RB0                                     
+CODE:CODE:010e  97              CLR         C                                       
+CODE:CODE:010f  fd              MOV         A,R5                                    
+CODE:CODE:0110  7216            JB0x3       LAB_CODE_0116                           
+CODE:CODE:0112  8a40            ORL         P2,#0x40                                
+CODE:CODE:0114  241e            JMP         LAB_CODE_011e                           
+                            LAB_CODE_0116:                ;XREF[1,0]:   CODE:0110
+CODE:CODE:0116  9abf            ANL         P2,#0xbf                                
+CODE:CODE:0118  d5              SEL         RB1                                     
+CODE:CODE:0119  fd              MOV         A,R5                                    
+CODE:CODE:011a  53bf            ANL         A,#0xbf                                 
+CODE:CODE:011c  ad              MOV         R5,A                                    
+CODE:CODE:011d  c5              SEL         RB0                                     
+                            LAB_CODE_011e:                ;XREF[1,0]:   CODE:0114
+CODE:CODE:011e  fd              MOV         A,R5                                    
+CODE:CODE:011f  9225            JB0x4       LAB_CODE_0125                           
+CODE:CODE:0121  8a80            ORL         P2,#0x80                                
+CODE:CODE:0123  242c            JMP         LAB_CODE_012c                           
+                            LAB_CODE_0125:                ;XREF[1,0]:   CODE:011f
+CODE:CODE:0125  9a7f            ANL         P2,#0x7f                                
+CODE:CODE:0127  d5              SEL         RB1                                     
+CODE:CODE:0128  fd              MOV         A,R5                                    
+CODE:CODE:0129  537f            ANL         A,#0x7f                                 
+CODE:CODE:012b  ad              MOV         R5,A                                    
+                            LAB_CODE_012c:                ;XREF[1,0]:   CODE:0123
+CODE:CODE:012c  d5              SEL         RB1                                     
+CODE:CODE:012d  fd              MOV         A,R5                                    
+CODE:CODE:012e  3a              OUTL        P2,A                                    
+CODE:CODE:012f  a5              CLR         F1                                      
+CODE:CODE:0130  c5              SEL         RB0                                     
+CODE:CODE:0131  b820            MOV         R0,#0x20                                
+CODE:CODE:0133  0457            JMP         LAB_CODE_0057                           
+                            LAB_CODE_0135:                ;XREF[1,0]:   CODE:0100
+CODE:CODE:0135  d5              SEL         RB1                                     
+CODE:CODE:0136  fb              MOV         A,R3                                    
+CODE:CODE:0137  c64d            JZ          LAB_CODE_014d                           
+CODE:CODE:0139  eb4d            DJNZ        R3,LAB_CODE_014d                        
+CODE:CODE:013b  bb08            MOV         R3,#0x8                                 
+CODE:CODE:013d  c5              SEL         RB0                                     
+CODE:CODE:013e  fc              MOV         A,R4                                    
+CODE:CODE:013f  d5              SEL         RB1                                     
+CODE:CODE:0140  7647            JF1         LAB_CODE_0147                           
+CODE:CODE:0142  e3              MOVP3       A,@A=>DAT_CODE_0355                     ;= 40h
+                            LAB_CODE_0143:                ;XREF[1,0]:   CODE:014b
+CODE:CODE:0143  5400            CALL        FUN_CODE_0200                           ;undefined FUN_CODE_0200()
+CODE:CODE:0145  244d            JMP         LAB_CODE_014d                           
+                            LAB_CODE_0147:                ;XREF[1,0]:   CODE:0140
+CODE:CODE:0147  39              OUTL        P1,A                                    
+CODE:CODE:0148  9afe            ANL         P2,#0xfe                                
+CODE:CODE:014a  80              MOVX        A,@R0=>DAT_EXTMEM_20                    
+CODE:CODE:014b  2443            JMP         LAB_CODE_0143                           
+                            LAB_CODE_014d:                ;XREF[3,0]:   CODE:0137,CODE:0139,CODE:0145
+CODE:CODE:014d  c5              SEL         RB0                                     
+CODE:CODE:014e  b1ff            MOV         @R1=>STACK:DAT_INTMEM_10,#0xff          ;= ??
+CODE:CODE:0150  f9              MOV         A,R1                                    
+CODE:CODE:0151  17              INC         A                                       
+CODE:CODE:0152  5317            ANL         A,#0x17                                 
+CODE:CODE:0154  a9              MOV         R1,A                                    
+CODE:CODE:0155  d5              SEL         RB1                                     
+CODE:CODE:0156  ff              MOV         A,R7                                    
+CODE:CODE:0157  de              XRL         A,R6                                    
+CODE:CODE:0158  c604            JZ          LAB_CODE_0104                           
+CODE:CODE:015a  8604            JNI         LAB_CODE_0104                           
+CODE:CODE:015c  5604            JT1         LAB_CODE_0104                           
+CODE:CODE:015e  fe              MOV         A,R6                                    
+CODE:CODE:015f  9663            JNZ         LAB_CODE_0163                           
+CODE:CODE:0161  ff              MOV         A,R7                                    
+CODE:CODE:0162  ae              MOV         R6,A                                    
+                            LAB_CODE_0163:                ;XREF[1,0]:   CODE:015f
+CODE:CODE:0163  ff              MOV         A,R7                                    
+CODE:CODE:0164  a9              MOV         R1,A                                    
+CODE:CODE:0165  17              INC         A                                       
+CODE:CODE:0166  af              MOV         R7,A                                    
+CODE:CODE:0167  d340            XRL         A,#0x40                                 
+CODE:CODE:0169  966d            JNZ         LAB_CODE_016d                           
+CODE:CODE:016b  bf2c            MOV         R7,#0x2c                                
+                            LAB_CODE_016d:                ;XREF[1,0]:   CODE:0169
+CODE:CODE:016d  65              STOP        TCNT                                    
+CODE:CODE:016e  9aef            ANL         P2,#0xef                                
+CODE:CODE:0170  fd              MOV         A,R5                                    
+CODE:CODE:0171  53df            ANL         A,#0xdf                                 
+CODE:CODE:0173  ad              MOV         R5,A                                    
+CODE:CODE:0174  f1              MOV         A,@R1                                   
+CODE:CODE:0175  47              SWAP        A                                       
+CODE:CODE:0176  e7              RL          A                                       
+CODE:CODE:0177  a1              MOV         @R1,A                                   
+CODE:CODE:0178  5320            ANL         A,#0x20                                 
+CODE:CODE:017a  4d              ORL         A,R5                                    
+CODE:CODE:017b  3a              OUTL        P2,A                                    
+CODE:CODE:017c  f1              MOV         A,@R1                                   
+CODE:CODE:017d  9aef            ANL         P2,#0xef                                
+CODE:CODE:017f  77              RR          A                                       
+CODE:CODE:0180  a1              MOV         @R1,A                                   
+CODE:CODE:0181  5320            ANL         A,#0x20                                 
+CODE:CODE:0183  4d              ORL         A,R5                                    
+CODE:CODE:0184  3a              OUTL        P2,A                                    
+CODE:CODE:0185  f1              MOV         A,@R1                                   
+CODE:CODE:0186  9aef            ANL         P2,#0xef                                
+CODE:CODE:0188  77              RR          A                                       
+CODE:CODE:0189  a1              MOV         @R1,A                                   
+CODE:CODE:018a  5320            ANL         A,#0x20                                 
+CODE:CODE:018c  4d              ORL         A,R5                                    
+CODE:CODE:018d  3a              OUTL        P2,A                                    
+CODE:CODE:018e  f1              MOV         A,@R1                                   
+CODE:CODE:018f  9aef            ANL         P2,#0xef                                
+CODE:CODE:0191  77              RR          A                                       
+CODE:CODE:0192  a1              MOV         @R1,A                                   
+CODE:CODE:0193  5320            ANL         A,#0x20                                 
+CODE:CODE:0195  4d              ORL         A,R5                                    
+CODE:CODE:0196  3a              OUTL        P2,A                                    
+CODE:CODE:0197  f1              MOV         A,@R1                                   
+CODE:CODE:0198  9aef            ANL         P2,#0xef                                
+CODE:CODE:019a  77              RR          A                                       
+CODE:CODE:019b  a1              MOV         @R1,A                                   
+CODE:CODE:019c  5320            ANL         A,#0x20                                 
+CODE:CODE:019e  4d              ORL         A,R5                                    
+CODE:CODE:019f  3a              OUTL        P2,A                                    
+CODE:CODE:01a0  f1              MOV         A,@R1                                   
+CODE:CODE:01a1  9aef            ANL         P2,#0xef                                
+CODE:CODE:01a3  77              RR          A                                       
+CODE:CODE:01a4  a1              MOV         @R1,A                                   
+CODE:CODE:01a5  5320            ANL         A,#0x20                                 
+CODE:CODE:01a7  4d              ORL         A,R5                                    
+CODE:CODE:01a8  3a              OUTL        P2,A                                    
+CODE:CODE:01a9  f1              MOV         A,@R1                                   
+CODE:CODE:01aa  9aef            ANL         P2,#0xef                                
+CODE:CODE:01ac  77              RR          A                                       
+CODE:CODE:01ad  a1              MOV         @R1,A                                   
+CODE:CODE:01ae  5320            ANL         A,#0x20                                 
+CODE:CODE:01b0  4d              ORL         A,R5                                    
+CODE:CODE:01b1  3a              OUTL        P2,A                                    
+CODE:CODE:01b2  f1              MOV         A,@R1                                   
+CODE:CODE:01b3  9aef            ANL         P2,#0xef                                
+CODE:CODE:01b5  77              RR          A                                       
+CODE:CODE:01b6  a1              MOV         @R1,A                                   
+CODE:CODE:01b7  5320            ANL         A,#0x20                                 
+CODE:CODE:01b9  4d              ORL         A,R5                                    
+CODE:CODE:01ba  3a              OUTL        P2,A                                    
+CODE:CODE:01bb  f1              MOV         A,@R1                                   
+CODE:CODE:01bc  9aef            ANL         P2,#0xef                                
+CODE:CODE:01be  77              RR          A                                       
+CODE:CODE:01bf  47              SWAP        A                                       
+CODE:CODE:01c0  a1              MOV         @R1,A                                   
+CODE:CODE:01c1  2330            MOV         A,#0x30                                 
+CODE:CODE:01c3  8a30            ORL         P2,#0x30                                
+CODE:CODE:01c5  4d              ORL         A,R5                                    
+CODE:CODE:01c6  ad              MOV         R5,A                                    
+CODE:CODE:01c7  c5              SEL         RB0                                     
+CODE:CODE:01c8  fd              MOV         A,R5                                    
+CODE:CODE:01c9  12ce            JB0x0       LAB_CODE_01ce                           
+                            LAB_CODE_01cb:                ;XREF[2,0]:   CODE:01d6,CODE:01e5
+CODE:CODE:01cb  55              STRT        T                                       
+CODE:CODE:01cc  2404            JMP         LAB_CODE_0104                           
+                            LAB_CODE_01ce:                ;XREF[1,0]:   CODE:01c9
+CODE:CODE:01ce  00              NOP                                                  
+CODE:CODE:01cf  56e0            JT1         LAB_CODE_01e0                           
+CODE:CODE:01d1  32d8            JB0x1       LAB_CODE_01d8                           
+CODE:CODE:01d3  4302            ORL         A,#0x2                                  
+CODE:CODE:01d5  ad              MOV         R5,A                                    
+CODE:CODE:01d6  24cb            JMP         LAB_CODE_01cb                           
+                            LAB_CODE_01d8:                ;XREF[1,0]:   CODE:01d1
+CODE:CODE:01d8  d5              SEL         RB1                                     
+CODE:CODE:01d9  b804            MOV         R0,#0x4                                 
+                            LAB_CODE_01db:                ;XREF[1,0]:   CODE:01db
+CODE:CODE:01db  e8db            DJNZ        R0,LAB_CODE_01db                        
+CODE:CODE:01dd  9adf            ANL         P2,#0xdf                                
+CODE:CODE:01df  c5              SEL         RB0                                     
+                            LAB_CODE_01e0:                ;XREF[1,0]:   CODE:01cf
+CODE:CODE:01e0  53fd            ANL         A,#0xfd                                 
+CODE:CODE:01e2  8a20            ORL         P2,#0x20                                
+CODE:CODE:01e4  ad              MOV         R5,A                                    
+CODE:CODE:01e5  24cb            JMP         LAB_CODE_01cb                           
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;undefined FUN_CODE_01e7()
+                                                          ;XREF[2,0]:   CODE:0061,CODE:006b
+CODE:CODE:01e7  f8              MOV         A,R0                                    
+CODE:CODE:01e8  39              OUTL        P1,A                                    
+CODE:CODE:01e9  3c              MOVD        P4=>PORT:P4,A                           ;= ??
+CODE:CODE:01ea  89ff            ORL         P1,#0xff                                
+CODE:CODE:01ec  09              IN          A,P1=>PORT:P1                           ;= ??
+CODE:CODE:01ed  37              CPL         A                                       
+CODE:CODE:01ee  d0              XRL         A,@R0                                   
+CODE:CODE:01ef  93              RETR                                                 
+CODE:CODE:01f0  00              ??          00h                                     
+CODE:CODE:01f1  00              ??          00h                                     
+CODE:CODE:01f2  00              ??          00h                                     
+CODE:CODE:01f3  00              ??          00h                                     
+CODE:CODE:01f4  00              ??          00h                                     
+CODE:CODE:01f5  00              ??          00h                                     
+CODE:CODE:01f6  00              ??          00h                                     
+CODE:CODE:01f7  00              ??          00h                                     
+CODE:CODE:01f8  00              ??          00h                                     
+CODE:CODE:01f9  00              ??          00h                                     
+CODE:CODE:01fa  00              ??          00h                                     
+CODE:CODE:01fb  00              ??          00h                                     
+CODE:CODE:01fc  00              ??          00h                                     
+CODE:CODE:01fd  00              ??          00h                                     
+CODE:CODE:01fe  00              ??          00h                                     
+CODE:CODE:01ff  00              ??          00h                                     
+                            ;************************************************************************************************
+                            ;*                                           FUNCTION                                           *
+                            ;************************************************************************************************
+                            ;undefined FUN_CODE_0200()
+                                                          ;XREF[4,0]:   CODE:0054,CODE:00b8,CODE:00ee,CODE:0143
+CODE:CODE:0200  d5              SEL         RB1                                     
+CODE:CODE:0201  2e              XCH         A,R6                                    
+CODE:CODE:0202  c616            JZ          LAB_CODE_0216                           
+CODE:CODE:0204  a9              MOV         R1,A                                    
+CODE:CODE:0205  17              INC         A                                       
+CODE:CODE:0206  d340            XRL         A,#0x40                                 
+CODE:CODE:0208  c60e            JZ          LAB_CODE_020e                           
+CODE:CODE:020a  f9              MOV         A,R1                                    
+CODE:CODE:020b  17              INC         A                                       
+CODE:CODE:020c  4410            JMP         LAB_CODE_0210                           
+                            LAB_CODE_020e:                ;XREF[1,0]:   CODE:0208
+CODE:CODE:020e  232c            MOV         A,#0x2c                                 
+                            LAB_CODE_0210:                ;XREF[1,0]:   CODE:020c
+CODE:CODE:0210  2e              XCH         A,R6                                    
+CODE:CODE:0211  a1              MOV         @R1,A                                   
+CODE:CODE:0212  fe              MOV         A,R6                                    
+CODE:CODE:0213  df              XRL         A,R7                                    
+CODE:CODE:0214  9617            JNZ         LAB_CODE_0217                           
+                            LAB_CODE_0216:                ;XREF[1,0]:   CODE:0202
+CODE:CODE:0216  ae              MOV         R6,A                                    
+                            LAB_CODE_0217:                ;XREF[1,0]:   CODE:0214
+CODE:CODE:0217  93              RETR                                                 
+CODE:CODE:0218  00              ??          00h                                     
+CODE:CODE:0219  04              ??          04h                                     
+CODE:CODE:021a  2b              ??          2Bh    +                                
+CODE:CODE:021b  04              ??          04h                                     
+CODE:CODE:021c  2b              ??          2Bh    +                                
+CODE:CODE:021d  00              ??          00h                                     
+CODE:CODE:021e  00              ??          00h                                     
+CODE:CODE:021f  00              ??          00h                                     
+CODE:CODE:0220  00              ??          00h                                     
+CODE:CODE:0221  00              ??          00h                                     
+CODE:CODE:0222  00              ??          00h                                     
+CODE:CODE:0223  00              ??          00h                                     
+CODE:CODE:0224  00              ??          00h                                     
+CODE:CODE:0225  00              ??          00h                                     
+CODE:CODE:0226  00              ??          00h                                     
+CODE:CODE:0227  00              ??          00h                                     
+CODE:CODE:0228  00              ??          00h                                     
+CODE:CODE:0229  00              ??          00h                                     
+CODE:CODE:022a  00              ??          00h                                     
+CODE:CODE:022b  00              ??          00h                                     
+CODE:CODE:022c  00              ??          00h                                     
+CODE:CODE:022d  00              ??          00h                                     
+CODE:CODE:022e  00              ??          00h                                     
+CODE:CODE:022f  00              ??          00h                                     
+CODE:CODE:0230  00              ??          00h                                     
+CODE:CODE:0231  00              ??          00h                                     
+CODE:CODE:0232  00              ??          00h                                     
+CODE:CODE:0233  00              ??          00h                                     
+CODE:CODE:0234  00              ??          00h                                     
+CODE:CODE:0235  00              ??          00h                                     
+CODE:CODE:0236  00              ??          00h                                     
+CODE:CODE:0237  00              ??          00h                                     
+CODE:CODE:0238  00              ??          00h                                     
+CODE:CODE:0239  00              ??          00h                                     
+CODE:CODE:023a  00              ??          00h                                     
+CODE:CODE:023b  00              ??          00h                                     
+CODE:CODE:023c  00              ??          00h                                     
+CODE:CODE:023d  00              ??          00h                                     
+CODE:CODE:023e  00              ??          00h                                     
+CODE:CODE:023f  00              ??          00h                                     
+CODE:CODE:0240  00              ??          00h                                     
+CODE:CODE:0241  00              ??          00h                                     
+CODE:CODE:0242  00              ??          00h                                     
+CODE:CODE:0243  00              ??          00h                                     
+CODE:CODE:0244  00              ??          00h                                     
+CODE:CODE:0245  00              ??          00h                                     
+CODE:CODE:0246  00              ??          00h                                     
+CODE:CODE:0247  00              ??          00h                                     
+CODE:CODE:0248  00              ??          00h                                     
+CODE:CODE:0249  00              ??          00h                                     
+CODE:CODE:024a  00              ??          00h                                     
+CODE:CODE:024b  00              ??          00h                                     
+CODE:CODE:024c  00              ??          00h                                     
+CODE:CODE:024d  00              ??          00h                                     
+CODE:CODE:024e  00              ??          00h                                     
+CODE:CODE:024f  00              ??          00h                                     
+CODE:CODE:0250  00              ??          00h                                     
+CODE:CODE:0251  00              ??          00h                                     
+CODE:CODE:0252  00              ??          00h                                     
+CODE:CODE:0253  00              ??          00h                                     
+CODE:CODE:0254  00              ??          00h                                     
+CODE:CODE:0255  00              ??          00h                                     
+CODE:CODE:0256  00              ??          00h                                     
+CODE:CODE:0257  00              ??          00h                                     
+CODE:CODE:0258  00              ??          00h                                     
+CODE:CODE:0259  00              ??          00h                                     
+CODE:CODE:025a  00              ??          00h                                     
+CODE:CODE:025b  00              ??          00h                                     
+CODE:CODE:025c  00              ??          00h                                     
+CODE:CODE:025d  00              ??          00h                                     
+CODE:CODE:025e  00              ??          00h                                     
+CODE:CODE:025f  00              ??          00h                                     
+CODE:CODE:0260  00              ??          00h                                     
+CODE:CODE:0261  00              ??          00h                                     
+CODE:CODE:0262  00              ??          00h                                     
+CODE:CODE:0263  00              ??          00h                                     
+CODE:CODE:0264  00              ??          00h                                     
+CODE:CODE:0265  00              ??          00h                                     
+CODE:CODE:0266  00              ??          00h                                     
+CODE:CODE:0267  00              ??          00h                                     
+CODE:CODE:0268  00              ??          00h                                     
+CODE:CODE:0269  00              ??          00h                                     
+CODE:CODE:026a  00              ??          00h                                     
+CODE:CODE:026b  00              ??          00h                                     
+CODE:CODE:026c  00              ??          00h                                     
+CODE:CODE:026d  00              ??          00h                                     
+CODE:CODE:026e  00              ??          00h                                     
+CODE:CODE:026f  00              ??          00h                                     
+CODE:CODE:0270  00              ??          00h                                     
+CODE:CODE:0271  00              ??          00h                                     
+CODE:CODE:0272  00              ??          00h                                     
+CODE:CODE:0273  00              ??          00h                                     
+CODE:CODE:0274  00              ??          00h                                     
+CODE:CODE:0275  00              ??          00h                                     
+CODE:CODE:0276  00              ??          00h                                     
+CODE:CODE:0277  00              ??          00h                                     
+CODE:CODE:0278  00              ??          00h                                     
+CODE:CODE:0279  00              ??          00h                                     
+CODE:CODE:027a  00              ??          00h                                     
+CODE:CODE:027b  00              ??          00h                                     
+CODE:CODE:027c  00              ??          00h                                     
+CODE:CODE:027d  00              ??          00h                                     
+CODE:CODE:027e  00              ??          00h                                     
+CODE:CODE:027f  00              ??          00h                                     
+CODE:CODE:0280  00              ??          00h                                     
+CODE:CODE:0281  00              ??          00h                                     
+CODE:CODE:0282  00              ??          00h                                     
+CODE:CODE:0283  00              ??          00h                                     
+CODE:CODE:0284  00              ??          00h                                     
+CODE:CODE:0285  04              ??          04h                                     
+CODE:CODE:0286  2b              ??          2Bh    +                                
+CODE:CODE:0287  04              ??          04h                                     
+CODE:CODE:0288  2b              ??          2Bh    +                                
+CODE:CODE:0289  00              ??          00h                                     
+CODE:CODE:028a  00              ??          00h                                     
+CODE:CODE:028b  00              ??          00h                                     
+CODE:CODE:028c  00              ??          00h                                     
+CODE:CODE:028d  00              ??          00h                                     
+CODE:CODE:028e  00              ??          00h                                     
+CODE:CODE:028f  00              ??          00h                                     
+CODE:CODE:0290  00              ??          00h                                     
+CODE:CODE:0291  00              ??          00h                                     
+CODE:CODE:0292  00              ??          00h                                     
+CODE:CODE:0293  00              ??          00h                                     
+CODE:CODE:0294  00              ??          00h                                     
+CODE:CODE:0295  00              ??          00h                                     
+CODE:CODE:0296  00              ??          00h                                     
+CODE:CODE:0297  00              ??          00h                                     
+CODE:CODE:0298  00              ??          00h                                     
+CODE:CODE:0299  00              ??          00h                                     
+CODE:CODE:029a  00              ??          00h                                     
+CODE:CODE:029b  00              ??          00h                                     
+CODE:CODE:029c  00              ??          00h                                     
+CODE:CODE:029d  00              ??          00h                                     
+CODE:CODE:029e  00              ??          00h                                     
+CODE:CODE:029f  00              ??          00h                                     
+CODE:CODE:02a0  00              ??          00h                                     
+CODE:CODE:02a1  00              ??          00h                                     
+CODE:CODE:02a2  00              ??          00h                                     
+CODE:CODE:02a3  00              ??          00h                                     
+CODE:CODE:02a4  00              ??          00h                                     
+CODE:CODE:02a5  00              ??          00h                                     
+CODE:CODE:02a6  00              ??          00h                                     
+CODE:CODE:02a7  00              ??          00h                                     
+CODE:CODE:02a8  00              ??          00h                                     
+CODE:CODE:02a9  00              ??          00h                                     
+CODE:CODE:02aa  00              ??          00h                                     
+CODE:CODE:02ab  00              ??          00h                                     
+CODE:CODE:02ac  00              ??          00h                                     
+CODE:CODE:02ad  00              ??          00h                                     
+CODE:CODE:02ae  00              ??          00h                                     
+CODE:CODE:02af  00              ??          00h                                     
+CODE:CODE:02b0  00              ??          00h                                     
+CODE:CODE:02b1  00              ??          00h                                     
+CODE:CODE:02b2  00              ??          00h                                     
+CODE:CODE:02b3  00              ??          00h                                     
+CODE:CODE:02b4  00              ??          00h                                     
+CODE:CODE:02b5  00              ??          00h                                     
+CODE:CODE:02b6  00              ??          00h                                     
+CODE:CODE:02b7  00              ??          00h                                     
+CODE:CODE:02b8  00              ??          00h                                     
+CODE:CODE:02b9  00              ??          00h                                     
+CODE:CODE:02ba  00              ??          00h                                     
+CODE:CODE:02bb  00              ??          00h                                     
+CODE:CODE:02bc  00              ??          00h                                     
+CODE:CODE:02bd  00              ??          00h                                     
+CODE:CODE:02be  00              ??          00h                                     
+CODE:CODE:02bf  00              ??          00h                                     
+CODE:CODE:02c0  00              ??          00h                                     
+CODE:CODE:02c1  00              ??          00h                                     
+CODE:CODE:02c2  00              ??          00h                                     
+CODE:CODE:02c3  00              ??          00h                                     
+CODE:CODE:02c4  00              ??          00h                                     
+CODE:CODE:02c5  00              ??          00h                                     
+CODE:CODE:02c6  00              ??          00h                                     
+CODE:CODE:02c7  00              ??          00h                                     
+CODE:CODE:02c8  00              ??          00h                                     
+CODE:CODE:02c9  00              ??          00h                                     
+CODE:CODE:02ca  00              ??          00h                                     
+CODE:CODE:02cb  00              ??          00h                                     
+CODE:CODE:02cc  00              ??          00h                                     
+CODE:CODE:02cd  00              ??          00h                                     
+CODE:CODE:02ce  00              ??          00h                                     
+CODE:CODE:02cf  00              ??          00h                                     
+CODE:CODE:02d0  00              ??          00h                                     
+CODE:CODE:02d1  00              ??          00h                                     
+CODE:CODE:02d2  00              ??          00h                                     
+CODE:CODE:02d3  00              ??          00h                                     
+CODE:CODE:02d4  00              ??          00h                                     
+CODE:CODE:02d5  00              ??          00h                                     
+CODE:CODE:02d6  00              ??          00h                                     
+CODE:CODE:02d7  00              ??          00h                                     
+CODE:CODE:02d8  00              ??          00h                                     
+CODE:CODE:02d9  00              ??          00h                                     
+CODE:CODE:02da  00              ??          00h                                     
+CODE:CODE:02db  00              ??          00h                                     
+CODE:CODE:02dc  00              ??          00h                                     
+CODE:CODE:02dd  00              ??          00h                                     
+CODE:CODE:02de  00              ??          00h                                     
+CODE:CODE:02df  00              ??          00h                                     
+CODE:CODE:02e0  00              ??          00h                                     
+CODE:CODE:02e1  00              ??          00h                                     
+CODE:CODE:02e2  00              ??          00h                                     
+CODE:CODE:02e3  00              ??          00h                                     
+CODE:CODE:02e4  00              ??          00h                                     
+CODE:CODE:02e5  00              ??          00h                                     
+CODE:CODE:02e6  00              ??          00h                                     
+CODE:CODE:02e7  00              ??          00h                                     
+CODE:CODE:02e8  00              ??          00h                                     
+CODE:CODE:02e9  00              ??          00h                                     
+CODE:CODE:02ea  00              ??          00h                                     
+CODE:CODE:02eb  00              ??          00h                                     
+CODE:CODE:02ec  00              ??          00h                                     
+CODE:CODE:02ed  00              ??          00h                                     
+CODE:CODE:02ee  00              ??          00h                                     
+CODE:CODE:02ef  00              ??          00h                                     
+CODE:CODE:02f0  00              ??          00h                                     
+CODE:CODE:02f1  00              ??          00h                                     
+CODE:CODE:02f2  00              ??          00h                                     
+CODE:CODE:02f3  00              ??          00h                                     
+CODE:CODE:02f4  00              ??          00h                                     
+CODE:CODE:02f5  00              ??          00h                                     
+CODE:CODE:02f6  00              ??          00h                                     
+CODE:CODE:02f7  00              ??          00h                                     
+CODE:CODE:02f8  00              ??          00h                                     
+CODE:CODE:02f9  00              ??          00h                                     
+CODE:CODE:02fa  00              ??          00h                                     
+CODE:CODE:02fb  00              ??          00h                                     
+CODE:CODE:02fc  00              ??          00h                                     
+CODE:CODE:02fd  04              ??          04h                                     
+CODE:CODE:02fe  2b              ??          2Bh    +                                
+CODE:CODE:02ff  00              ??          00h                                     
+                            DAT_CODE_0300:                ;XREF[2,0]:   CODE:00b7,CODE:00eb
+CODE:CODE:0300  00              undefined1  00h                                     
+CODE:CODE:0301  46              ??          46h    F                                
+CODE:CODE:0302  00              ??          00h                                     
+CODE:CODE:0303  00              ??          00h                                     
+CODE:CODE:0304  52              ??          52h    R                                
+CODE:CODE:0305  1e              ??          1Eh                                     
+CODE:CODE:0306  50              ??          50h    P                                
+CODE:CODE:0307  2d              ??          2Dh    -                                
+CODE:CODE:0308  00              ??          00h                                     
+CODE:CODE:0309  53              ??          53h    S                                
+CODE:CODE:030a  4a              ??          4Ah    J                                
+CODE:CODE:030b  00              ??          00h                                     
+CODE:CODE:030c  4d              ??          4Dh    M                                
+CODE:CODE:030d  44              ??          44h    D                                
+CODE:CODE:030e  51              ??          51h    Q                                
+CODE:CODE:030f  4e              ??          4Eh    N                                
+CODE:CODE:0310  45              ??          45h    E                                
+CODE:CODE:0311  3a              ??          3Ah    :                                
+CODE:CODE:0312  48              ??          48h    H                                
+CODE:CODE:0313  49              ??          49h    I                                
+CODE:CODE:0314  4b              ??          4Bh    K                                
+CODE:CODE:0315  4c              ??          4Ch    L                                
+CODE:CODE:0316  4f              ??          4Fh    O                                
+CODE:CODE:0317  38              ??          38h    8                                
+CODE:CODE:0318  0d              ??          0Dh                                     
+CODE:CODE:0319  0e              ??          0Eh                                     
+CODE:CODE:031a  1b              ??          1Bh                                     
+CODE:CODE:031b  47              ??          47h    G                                
+CODE:CODE:031c  29              ??          29h    )                                
+CODE:CODE:031d  1c              ??          1Ch                                     
+CODE:CODE:031e  36              ??          36h    6                                
+CODE:CODE:031f  37              ??          37h    7                                
+CODE:CODE:0320  0b              ??          0Bh                                     
+CODE:CODE:0321  0c              ??          0Ch                                     
+CODE:CODE:0322  19              ??          19h                                     
+CODE:CODE:0323  1a              ??          1Ah                                     
+CODE:CODE:0324  27              ??          27h    '                                
+CODE:CODE:0325  28              ??          28h    (                                
+CODE:CODE:0326  34              ??          34h    4                                
+CODE:CODE:0327  35              ??          35h    5                                
+CODE:CODE:0328  09              ??          09h                                     
+CODE:CODE:0329  0a              ??          0Ah                                     
+CODE:CODE:032a  17              ??          17h                                     
+CODE:CODE:032b  18              ??          18h                                     
+CODE:CODE:032c  25              ??          25h    %                                
+CODE:CODE:032d  26              ??          26h    &                                
+CODE:CODE:032e  32              ??          32h    2                                
+CODE:CODE:032f  33              ??          33h    3                                
+CODE:CODE:0330  07              ??          07h                                     
+CODE:CODE:0331  08              ??          08h                                     
+CODE:CODE:0332  15              ??          15h                                     
+CODE:CODE:0333  16              ??          16h                                     
+CODE:CODE:0334  23              ??          23h    #                                
+CODE:CODE:0335  24              ??          24h    $                                
+CODE:CODE:0336  30              ??          30h    0                                
+CODE:CODE:0337  31              ??          31h    1                                
+CODE:CODE:0338  05              ??          05h                                     
+CODE:CODE:0339  06              ??          06h                                     
+CODE:CODE:033a  13              ??          13h                                     
+CODE:CODE:033b  14              ??          14h                                     
+CODE:CODE:033c  21              ??          21h    !                                
+CODE:CODE:033d  22              ??          22h    "                                
+CODE:CODE:033e  2e              ??          2Eh    .                                
+CODE:CODE:033f  2f              ??          2Fh    /                                
+CODE:CODE:0340  03              ??          03h                                     
+CODE:CODE:0341  04              ??          04h                                     
+CODE:CODE:0342  11              ??          11h                                     
+CODE:CODE:0343  12              ??          12h                                     
+CODE:CODE:0344  1f              ??          1Fh                                     
+CODE:CODE:0345  20              ??          20h                                     
+CODE:CODE:0346  2c              ??          2Ch    ,                                
+CODE:CODE:0347  39              ??          39h    9                                
+CODE:CODE:0348  01              ??          01h                                     
+CODE:CODE:0349  02              ??          02h                                     
+CODE:CODE:034a  0f              ??          0Fh                                     
+CODE:CODE:034b  10              ??          10h                                     
+CODE:CODE:034c  1d              ??          1Dh                                     
+CODE:CODE:034d  43              ??          43h    C                                
+CODE:CODE:034e  2a              ??          2Ah    *                                
+CODE:CODE:034f  2b              ??          2Bh    +                                
+CODE:CODE:0350  3b              ??          3Bh    ;                                
+CODE:CODE:0351  3c              ??          3Ch    <                                
+CODE:CODE:0352  3d              ??          3Dh    =                                
+CODE:CODE:0353  3e              ??          3Eh    >                                
+CODE:CODE:0354  3f              ??          3Fh    ?                                
+                            DAT_CODE_0355:                ;XREF[1,0]:   CODE:0142
+CODE:CODE:0355  40              undefined1  40h                                     
+CODE:CODE:0356  41              ??          41h    A                                
+CODE:CODE:0357  42              ??          42h    B                                
+CODE:CODE:0358  04              ??          04h                                     
+CODE:CODE:0359  2b              ??          2Bh    +                                
+CODE:CODE:035a  00              ??          00h                                     
+CODE:CODE:035b  00              ??          00h                                     
+CODE:CODE:035c  00              ??          00h                                     
+CODE:CODE:035d  00              ??          00h                                     
+CODE:CODE:035e  00              ??          00h                                     
+CODE:CODE:035f  00              ??          00h                                     
+CODE:CODE:0360  00              ??          00h                                     
+CODE:CODE:0361  00              ??          00h                                     
+CODE:CODE:0362  00              ??          00h                                     
+CODE:CODE:0363  00              ??          00h                                     
+CODE:CODE:0364  00              ??          00h                                     
+CODE:CODE:0365  00              ??          00h                                     
+CODE:CODE:0366  00              ??          00h                                     
+CODE:CODE:0367  00              ??          00h                                     
+CODE:CODE:0368  00              ??          00h                                     
+CODE:CODE:0369  00              ??          00h                                     
+CODE:CODE:036a  00              ??          00h                                     
+CODE:CODE:036b  00              ??          00h                                     
+CODE:CODE:036c  00              ??          00h                                     
+CODE:CODE:036d  00              ??          00h                                     
+CODE:CODE:036e  00              ??          00h                                     
+CODE:CODE:036f  00              ??          00h                                     
+CODE:CODE:0370  00              ??          00h                                     
+CODE:CODE:0371  00              ??          00h                                     
+CODE:CODE:0372  00              ??          00h                                     
+CODE:CODE:0373  00              ??          00h                                     
+CODE:CODE:0374  00              ??          00h                                     
+CODE:CODE:0375  00              ??          00h                                     
+CODE:CODE:0376  00              ??          00h                                     
+CODE:CODE:0377  00              ??          00h                                     
+CODE:CODE:0378  00              ??          00h                                     
+CODE:CODE:0379  00              ??          00h                                     
+CODE:CODE:037a  00              ??          00h                                     
+CODE:CODE:037b  00              ??          00h                                     
+CODE:CODE:037c  00              ??          00h                                     
+CODE:CODE:037d  00              ??          00h                                     
+CODE:CODE:037e  00              ??          00h                                     
+CODE:CODE:037f  00              ??          00h                                     
+CODE:CODE:0380  00              ??          00h                                     
+CODE:CODE:0381  00              ??          00h                                     
+CODE:CODE:0382  00              ??          00h                                     
+CODE:CODE:0383  00              ??          00h                                     
+CODE:CODE:0384  00              ??          00h                                     
+CODE:CODE:0385  00              ??          00h                                     
+CODE:CODE:0386  04              ??          04h                                     
+CODE:CODE:0387  2b              ??          2Bh    +                                
+CODE:CODE:0388  00              ??          00h                                     
+CODE:CODE:0389  00              ??          00h                                     
+CODE:CODE:038a  00              ??          00h                                     
+CODE:CODE:038b  00              ??          00h                                     
+CODE:CODE:038c  00              ??          00h                                     
+CODE:CODE:038d  00              ??          00h                                     
+CODE:CODE:038e  00              ??          00h                                     
+CODE:CODE:038f  00              ??          00h                                     
+CODE:CODE:0390  00              ??          00h                                     
+CODE:CODE:0391  00              ??          00h                                     
+CODE:CODE:0392  00              ??          00h                                     
+CODE:CODE:0393  00              ??          00h                                     
+CODE:CODE:0394  00              ??          00h                                     
+CODE:CODE:0395  00              ??          00h                                     
+CODE:CODE:0396  00              ??          00h                                     
+CODE:CODE:0397  00              ??          00h                                     
+CODE:CODE:0398  00              ??          00h                                     
+CODE:CODE:0399  00              ??          00h                                     
+CODE:CODE:039a  00              ??          00h                                     
+CODE:CODE:039b  00              ??          00h                                     
+CODE:CODE:039c  00              ??          00h                                     
+CODE:CODE:039d  00              ??          00h                                     
+CODE:CODE:039e  00              ??          00h                                     
+CODE:CODE:039f  00              ??          00h                                     
+CODE:CODE:03a0  00              ??          00h                                     
+CODE:CODE:03a1  00              ??          00h                                     
+CODE:CODE:03a2  00              ??          00h                                     
+CODE:CODE:03a3  00              ??          00h                                     
+CODE:CODE:03a4  00              ??          00h                                     
+CODE:CODE:03a5  00              ??          00h                                     
+CODE:CODE:03a6  00              ??          00h                                     
+CODE:CODE:03a7  00              ??          00h                                     
+CODE:CODE:03a8  00              ??          00h                                     
+CODE:CODE:03a9  00              ??          00h                                     
+CODE:CODE:03aa  00              ??          00h                                     
+CODE:CODE:03ab  00              ??          00h                                     
+CODE:CODE:03ac  00              ??          00h                                     
+CODE:CODE:03ad  00              ??          00h                                     
+CODE:CODE:03ae  00              ??          00h                                     
+CODE:CODE:03af  00              ??          00h                                     
+CODE:CODE:03b0  00              ??          00h                                     
+CODE:CODE:03b1  00              ??          00h                                     
+CODE:CODE:03b2  00              ??          00h                                     
+CODE:CODE:03b3  00              ??          00h                                     
+CODE:CODE:03b4  00              ??          00h                                     
+CODE:CODE:03b5  00              ??          00h                                     
+CODE:CODE:03b6  00              ??          00h                                     
+CODE:CODE:03b7  00              ??          00h                                     
+CODE:CODE:03b8  00              ??          00h                                     
+CODE:CODE:03b9  00              ??          00h                                     
+CODE:CODE:03ba  00              ??          00h                                     
+CODE:CODE:03bb  00              ??          00h                                     
+CODE:CODE:03bc  00              ??          00h                                     
+CODE:CODE:03bd  00              ??          00h                                     
+CODE:CODE:03be  00              ??          00h                                     
+CODE:CODE:03bf  00              ??          00h                                     
+CODE:CODE:03c0  00              ??          00h                                     
+CODE:CODE:03c1  00              ??          00h                                     
+CODE:CODE:03c2  00              ??          00h                                     
+CODE:CODE:03c3  00              ??          00h                                     
+CODE:CODE:03c4  00              ??          00h                                     
+CODE:CODE:03c5  00              ??          00h                                     
+CODE:CODE:03c6  00              ??          00h                                     
+CODE:CODE:03c7  00              ??          00h                                     
+CODE:CODE:03c8  00              ??          00h                                     
+CODE:CODE:03c9  00              ??          00h                                     
+CODE:CODE:03ca  00              ??          00h                                     
+CODE:CODE:03cb  00              ??          00h                                     
+CODE:CODE:03cc  00              ??          00h                                     
+CODE:CODE:03cd  00              ??          00h                                     
+CODE:CODE:03ce  00              ??          00h                                     
+CODE:CODE:03cf  00              ??          00h                                     
+CODE:CODE:03d0  00              ??          00h                                     
+CODE:CODE:03d1  00              ??          00h                                     
+CODE:CODE:03d2  00              ??          00h                                     
+CODE:CODE:03d3  00              ??          00h                                     
+CODE:CODE:03d4  00              ??          00h                                     
+CODE:CODE:03d5  00              ??          00h                                     
+CODE:CODE:03d6  00              ??          00h                                     
+CODE:CODE:03d7  00              ??          00h                                     
+CODE:CODE:03d8  00              ??          00h                                     
+CODE:CODE:03d9  00              ??          00h                                     
+CODE:CODE:03da  00              ??          00h                                     
+CODE:CODE:03db  00              ??          00h                                     
+CODE:CODE:03dc  00              ??          00h                                     
+CODE:CODE:03dd  00              ??          00h                                     
+CODE:CODE:03de  00              ??          00h                                     
+CODE:CODE:03df  00              ??          00h                                     
+CODE:CODE:03e0  00              ??          00h                                     
+CODE:CODE:03e1  00              ??          00h                                     
+CODE:CODE:03e2  00              ??          00h                                     
+CODE:CODE:03e3  00              ??          00h                                     
+CODE:CODE:03e4  00              ??          00h                                     
+CODE:CODE:03e5  00              ??          00h                                     
+CODE:CODE:03e6  00              ??          00h                                     
+CODE:CODE:03e7  00              ??          00h                                     
+CODE:CODE:03e8  00              ??          00h                                     
+CODE:CODE:03e9  00              ??          00h                                     
+CODE:CODE:03ea  00              ??          00h                                     
+CODE:CODE:03eb  00              ??          00h                                     
+CODE:CODE:03ec  00              ??          00h                                     
+CODE:CODE:03ed  00              ??          00h                                     
+CODE:CODE:03ee  00              ??          00h                                     
+CODE:CODE:03ef  00              ??          00h                                     
+CODE:CODE:03f0  00              ??          00h                                     
+CODE:CODE:03f1  00              ??          00h                                     
+CODE:CODE:03f2  00              ??          00h                                     
+CODE:CODE:03f3  00              ??          00h                                     
+CODE:CODE:03f4  00              ??          00h                                     
+CODE:CODE:03f5  00              ??          00h                                     
+CODE:CODE:03f6  00              ??          00h                                     
+CODE:CODE:03f7  00              ??          00h                                     
+CODE:CODE:03f8  00              ??          00h                                     
+CODE:CODE:03f9  00              ??          00h                                     
+CODE:CODE:03fa  00              ??          00h                                     
+CODE:CODE:03fb  00              ??          00h                                     
+CODE:CODE:03fc  00              ??          00h                                     
+CODE:CODE:03fd  00              ??          00h                                     
+CODE:CODE:03fe  04              ??          04h                                     
+CODE:CODE:03ff  2b              ??          2Bh    +                                
+                            BANK0_R0:                     
+REG_BANK_0:IN...                ??          ??                                      
+                            BANK0_R1:                     
+REG_BANK_0:IN...                ??          ??                                      
+                            BANK0_R2:                     
+REG_BANK_0:IN...                ??          ??                                      
+                            BANK0_R3:                     
+REG_BANK_0:IN...                ??          ??                                      
+                            BANK0_R4:                     
+REG_BANK_0:IN...                ??          ??                                      
+                            BANK0_R5:                     
+REG_BANK_0:IN...                ??          ??                                      
+                            BANK0_R6:                     
+REG_BANK_0:IN...                ??          ??                                      
+                            BANK0_R7:                     
+REG_BANK_0:IN...                ??          ??                                      
+                            DAT_INTMEM_08:                ;XREF[1,0]:   CODE:0037
+STACK:INTMEM:08                 undefined2  ??                                      
+STACK:INTMEM:0a                 ??          ??                                      
+STACK:INTMEM:0b                 ??          ??                                      
+STACK:INTMEM:0c                 ??          ??                                      
+STACK:INTMEM:0d                 ??          ??                                      
+STACK:INTMEM:0e                 ??          ??                                      
+STACK:INTMEM:0f                 ??          ??                                      
+                            DAT_INTMEM_10:                ;XREF[3,0]:   CODE:009b,CODE:00cd,CODE:014e
+STACK:INTMEM:10                 undefined1  ??                                      
+                            DAT_INTMEM_11:                ;XREF[1,0]:   CODE:00cd
+STACK:INTMEM:11                 undefined1  ??                                      
+STACK:INTMEM:12                 ??          ??                                      
+STACK:INTMEM:13                 ??          ??                                      
+STACK:INTMEM:14                 ??          ??                                      
+STACK:INTMEM:15                 ??          ??                                      
+STACK:INTMEM:16                 ??          ??                                      
+STACK:INTMEM:17                 ??          ??                                      
+                            BANK1_R0:                     
+REG_BANK_1:IN...                ??          ??                                      
+                            BANK1_R1:                     
+REG_BANK_1:IN...                ??          ??                                      
+                            BANK1_R2:                     
+REG_BANK_1:IN...                ??          ??                                      
+                            BANK1_R3:                     
+REG_BANK_1:IN...                ??          ??                                      
+                            BANK1_R4:                     
+REG_BANK_1:IN...                ??          ??                                      
+                            BANK1_R5:                     
+REG_BANK_1:IN...                ??          ??                                      
+                            BANK1_R6:                     
+REG_BANK_1:IN...                ??          ??                                      
+                            BANK1_R7:                     
+REG_BANK_1:IN...                ??          ??                                      
+                            DAT_INTMEM_20:                ;XREF[5,0]:   CODE:0094,CODE:0098,CODE:0099,CODE:00dd
+                                                          ;             CODE:00de
+INTMEM:INTMEM:20                undefined1  ??                                      
+INTMEM:INTMEM:21                ??          ??                                      
+INTMEM:INTMEM:22                ??          ??                                      
+INTMEM:INTMEM:23                ??          ??                                      
+INTMEM:INTMEM:24                ??          ??                                      
+INTMEM:INTMEM:25                ??          ??                                      
+INTMEM:INTMEM:26                ??          ??                                      
+INTMEM:INTMEM:27                ??          ??                                      
+INTMEM:INTMEM:28                ??          ??                                      
+INTMEM:INTMEM:29                ??          ??                                      
+INTMEM:INTMEM:2a                ??          ??                                      
+INTMEM:INTMEM:2b                ??          ??                                      
+INTMEM:INTMEM:2c                ??          ??                                      
+INTMEM:INTMEM:2d                ??          ??                                      
+INTMEM:INTMEM:2e                ??          ??                                      
+INTMEM:INTMEM:2f                ??          ??                                      
+INTMEM:INTMEM:30                ??          ??                                      
+INTMEM:INTMEM:31                ??          ??                                      
+INTMEM:INTMEM:32                ??          ??                                      
+INTMEM:INTMEM:33                ??          ??                                      
+INTMEM:INTMEM:34                ??          ??                                      
+INTMEM:INTMEM:35                ??          ??                                      
+INTMEM:INTMEM:36                ??          ??                                      
+INTMEM:INTMEM:37                ??          ??                                      
+INTMEM:INTMEM:38                ??          ??                                      
+INTMEM:INTMEM:39                ??          ??                                      
+INTMEM:INTMEM:3a                ??          ??                                      
+INTMEM:INTMEM:3b                ??          ??                                      
+INTMEM:INTMEM:3c                ??          ??                                      
+INTMEM:INTMEM:3d                ??          ??                                      
+                            DAT_INTMEM_3e:                ;XREF[1,0]:   CODE:003e
+INTMEM:INTMEM:3e                undefined1  ??                                      
+                            DAT_INTMEM_3f:                ;XREF[1,0]:   CODE:003e
+INTMEM:INTMEM:3f                undefined1  ??                                      
+INTMEM:INTMEM:40                ??          ??                                      
+INTMEM:INTMEM:41                ??          ??                                      
+INTMEM:INTMEM:42                ??          ??                                      
+INTMEM:INTMEM:43                ??          ??                                      
+INTMEM:INTMEM:44                ??          ??                                      
+INTMEM:INTMEM:45                ??          ??                                      
+INTMEM:INTMEM:46                ??          ??                                      
+INTMEM:INTMEM:47                ??          ??                                      
+INTMEM:INTMEM:48                ??          ??                                      
+INTMEM:INTMEM:49                ??          ??                                      
+INTMEM:INTMEM:4a                ??          ??                                      
+INTMEM:INTMEM:4b                ??          ??                                      
+INTMEM:INTMEM:4c                ??          ??                                      
+INTMEM:INTMEM:4d                ??          ??                                      
+INTMEM:INTMEM:4e                ??          ??                                      
+INTMEM:INTMEM:4f                ??          ??                                      
+INTMEM:INTMEM:50                ??          ??                                      
+INTMEM:INTMEM:51                ??          ??                                      
+INTMEM:INTMEM:52                ??          ??                                      
+INTMEM:INTMEM:53                ??          ??                                      
+INTMEM:INTMEM:54                ??          ??                                      
+INTMEM:INTMEM:55                ??          ??                                      
+INTMEM:INTMEM:56                ??          ??                                      
+INTMEM:INTMEM:57                ??          ??                                      
+INTMEM:INTMEM:58                ??          ??                                      
+INTMEM:INTMEM:59                ??          ??                                      
+INTMEM:INTMEM:5a                ??          ??                                      
+INTMEM:INTMEM:5b                ??          ??                                      
+INTMEM:INTMEM:5c                ??          ??                                      
+INTMEM:INTMEM:5d                ??          ??                                      
+INTMEM:INTMEM:5e                ??          ??                                      
+INTMEM:INTMEM:5f                ??          ??                                      
+INTMEM:INTMEM:60                ??          ??                                      
+INTMEM:INTMEM:61                ??          ??                                      
+INTMEM:INTMEM:62                ??          ??                                      
+INTMEM:INTMEM:63                ??          ??                                      
+INTMEM:INTMEM:64                ??          ??                                      
+INTMEM:INTMEM:65                ??          ??                                      
+INTMEM:INTMEM:66                ??          ??                                      
+INTMEM:INTMEM:67                ??          ??                                      
+INTMEM:INTMEM:68                ??          ??                                      
+INTMEM:INTMEM:69                ??          ??                                      
+INTMEM:INTMEM:6a                ??          ??                                      
+INTMEM:INTMEM:6b                ??          ??                                      
+INTMEM:INTMEM:6c                ??          ??                                      
+INTMEM:INTMEM:6d                ??          ??                                      
+INTMEM:INTMEM:6e                ??          ??                                      
+INTMEM:INTMEM:6f                ??          ??                                      
+INTMEM:INTMEM:70                ??          ??                                      
+INTMEM:INTMEM:71                ??          ??                                      
+INTMEM:INTMEM:72                ??          ??                                      
+INTMEM:INTMEM:73                ??          ??                                      
+INTMEM:INTMEM:74                ??          ??                                      
+INTMEM:INTMEM:75                ??          ??                                      
+INTMEM:INTMEM:76                ??          ??                                      
+INTMEM:INTMEM:77                ??          ??                                      
+INTMEM:INTMEM:78                ??          ??                                      
+INTMEM:INTMEM:79                ??          ??                                      
+INTMEM:INTMEM:7a                ??          ??                                      
+INTMEM:INTMEM:7b                ??          ??                                      
+INTMEM:INTMEM:7c                ??          ??                                      
+INTMEM:INTMEM:7d                ??          ??                                      
+INTMEM:INTMEM:7e                ??          ??                                      
+INTMEM:INTMEM:7f                ??          ??                                      
+INTMEM:INTMEM:80                ??          ??                                      
+INTMEM:INTMEM:81                ??          ??                                      
+INTMEM:INTMEM:82                ??          ??                                      
+INTMEM:INTMEM:83                ??          ??                                      
+INTMEM:INTMEM:84                ??          ??                                      
+INTMEM:INTMEM:85                ??          ??                                      
+INTMEM:INTMEM:86                ??          ??                                      
+INTMEM:INTMEM:87                ??          ??                                      
+INTMEM:INTMEM:88                ??          ??                                      
+INTMEM:INTMEM:89                ??          ??                                      
+INTMEM:INTMEM:8a                ??          ??                                      
+INTMEM:INTMEM:8b                ??          ??                                      
+INTMEM:INTMEM:8c                ??          ??                                      
+INTMEM:INTMEM:8d                ??          ??                                      
+INTMEM:INTMEM:8e                ??          ??                                      
+INTMEM:INTMEM:8f                ??          ??                                      
+INTMEM:INTMEM:90                ??          ??                                      
+INTMEM:INTMEM:91                ??          ??                                      
+INTMEM:INTMEM:92                ??          ??                                      
+INTMEM:INTMEM:93                ??          ??                                      
+INTMEM:INTMEM:94                ??          ??                                      
+INTMEM:INTMEM:95                ??          ??                                      
+INTMEM:INTMEM:96                ??          ??                                      
+INTMEM:INTMEM:97                ??          ??                                      
+INTMEM:INTMEM:98                ??          ??                                      
+INTMEM:INTMEM:99                ??          ??                                      
+INTMEM:INTMEM:9a                ??          ??                                      
+INTMEM:INTMEM:9b                ??          ??                                      
+INTMEM:INTMEM:9c                ??          ??                                      
+INTMEM:INTMEM:9d                ??          ??                                      
+INTMEM:INTMEM:9e                ??          ??                                      
+INTMEM:INTMEM:9f                ??          ??                                      
+INTMEM:INTMEM:a0                ??          ??                                      
+INTMEM:INTMEM:a1                ??          ??                                      
+INTMEM:INTMEM:a2                ??          ??                                      
+INTMEM:INTMEM:a3                ??          ??                                      
+INTMEM:INTMEM:a4                ??          ??                                      
+INTMEM:INTMEM:a5                ??          ??                                      
+INTMEM:INTMEM:a6                ??          ??                                      
+INTMEM:INTMEM:a7                ??          ??                                      
+INTMEM:INTMEM:a8                ??          ??                                      
+INTMEM:INTMEM:a9                ??          ??                                      
+INTMEM:INTMEM:aa                ??          ??                                      
+INTMEM:INTMEM:ab                ??          ??                                      
+INTMEM:INTMEM:ac                ??          ??                                      
+INTMEM:INTMEM:ad                ??          ??                                      
+INTMEM:INTMEM:ae                ??          ??                                      
+INTMEM:INTMEM:af                ??          ??                                      
+INTMEM:INTMEM:b0                ??          ??                                      
+INTMEM:INTMEM:b1                ??          ??                                      
+INTMEM:INTMEM:b2                ??          ??                                      
+INTMEM:INTMEM:b3                ??          ??                                      
+INTMEM:INTMEM:b4                ??          ??                                      
+INTMEM:INTMEM:b5                ??          ??                                      
+INTMEM:INTMEM:b6                ??          ??                                      
+INTMEM:INTMEM:b7                ??          ??                                      
+INTMEM:INTMEM:b8                ??          ??                                      
+INTMEM:INTMEM:b9                ??          ??                                      
+INTMEM:INTMEM:ba                ??          ??                                      
+INTMEM:INTMEM:bb                ??          ??                                      
+INTMEM:INTMEM:bc                ??          ??                                      
+INTMEM:INTMEM:bd                ??          ??                                      
+INTMEM:INTMEM:be                ??          ??                                      
+INTMEM:INTMEM:bf                ??          ??                                      
+INTMEM:INTMEM:c0                ??          ??                                      
+INTMEM:INTMEM:c1                ??          ??                                      
+INTMEM:INTMEM:c2                ??          ??                                      
+INTMEM:INTMEM:c3                ??          ??                                      
+INTMEM:INTMEM:c4                ??          ??                                      
+INTMEM:INTMEM:c5                ??          ??                                      
+INTMEM:INTMEM:c6                ??          ??                                      
+INTMEM:INTMEM:c7                ??          ??                                      
+INTMEM:INTMEM:c8                ??          ??                                      
+INTMEM:INTMEM:c9                ??          ??                                      
+INTMEM:INTMEM:ca                ??          ??                                      
+INTMEM:INTMEM:cb                ??          ??                                      
+INTMEM:INTMEM:cc                ??          ??                                      
+INTMEM:INTMEM:cd                ??          ??                                      
+INTMEM:INTMEM:ce                ??          ??                                      
+INTMEM:INTMEM:cf                ??          ??                                      
+INTMEM:INTMEM:d0                ??          ??                                      
+INTMEM:INTMEM:d1                ??          ??                                      
+INTMEM:INTMEM:d2                ??          ??                                      
+INTMEM:INTMEM:d3                ??          ??                                      
+INTMEM:INTMEM:d4                ??          ??                                      
+INTMEM:INTMEM:d5                ??          ??                                      
+INTMEM:INTMEM:d6                ??          ??                                      
+INTMEM:INTMEM:d7                ??          ??                                      
+INTMEM:INTMEM:d8                ??          ??                                      
+INTMEM:INTMEM:d9                ??          ??                                      
+INTMEM:INTMEM:da                ??          ??                                      
+INTMEM:INTMEM:db                ??          ??                                      
+INTMEM:INTMEM:dc                ??          ??                                      
+INTMEM:INTMEM:dd                ??          ??                                      
+INTMEM:INTMEM:de                ??          ??                                      
+INTMEM:INTMEM:df                ??          ??                                      
+INTMEM:INTMEM:e0                ??          ??                                      
+INTMEM:INTMEM:e1                ??          ??                                      
+INTMEM:INTMEM:e2                ??          ??                                      
+INTMEM:INTMEM:e3                ??          ??                                      
+INTMEM:INTMEM:e4                ??          ??                                      
+INTMEM:INTMEM:e5                ??          ??                                      
+INTMEM:INTMEM:e6                ??          ??                                      
+INTMEM:INTMEM:e7                ??          ??                                      
+INTMEM:INTMEM:e8                ??          ??                                      
+INTMEM:INTMEM:e9                ??          ??                                      
+INTMEM:INTMEM:ea                ??          ??                                      
+INTMEM:INTMEM:eb                ??          ??                                      
+INTMEM:INTMEM:ec                ??          ??                                      
+INTMEM:INTMEM:ed                ??          ??                                      
+INTMEM:INTMEM:ee                ??          ??                                      
+INTMEM:INTMEM:ef                ??          ??                                      
+INTMEM:INTMEM:f0                ??          ??                                      
+INTMEM:INTMEM:f1                ??          ??                                      
+INTMEM:INTMEM:f2                ??          ??                                      
+INTMEM:INTMEM:f3                ??          ??                                      
+INTMEM:INTMEM:f4                ??          ??                                      
+INTMEM:INTMEM:f5                ??          ??                                      
+INTMEM:INTMEM:f6                ??          ??                                      
+INTMEM:INTMEM:f7                ??          ??                                      
+INTMEM:INTMEM:f8                ??          ??                                      
+INTMEM:INTMEM:f9                ??          ??                                      
+INTMEM:INTMEM:fa                ??          ??                                      
+INTMEM:INTMEM:fb                ??          ??                                      
+INTMEM:INTMEM:fc                ??          ??                                      
+INTMEM:INTMEM:fd                ??          ??                                      
+INTMEM:INTMEM:fe                ??          ??                                      
+INTMEM:INTMEM:ff                ??          ??                                      
+                            BUS:                          
+PORT:PORT:00                    ??          ??                                      
+                            P1:                           ;XREF[1,0]:   CODE:01ec
+PORT:PORT:01                    undefined1  ??                                      
+                            P2:                           ;XREF[1,0]:   CODE:0109
+PORT:PORT:02                    undefined1  ??                                      
+PORT:PORT:03                    ??          ??                                      
+                            P4:                           ;XREF[3,0]:   CODE:006a,CODE:006f,CODE:01e9
+PORT:PORT:04                    undefined1  ??                                      
+                            P5:                           
+PORT:PORT:05                    ??          ??                                      
+                            P6:                           
+PORT:PORT:06                    ??          ??                                      
+                            P7:                           
+PORT:PORT:07                    ??          ??                                      
