@@ -9,7 +9,8 @@ FUN_CODE_01e7 and FUN_CODE_01f6. They are the same, just placed in different spo
 CODE:0061              34e7                    34f6
 
 CODE:006b              34e7                    34f6
-
+//Lines 016e-01c9(01d2 on the 2516) perform the same as far as I can tell, with some lines consolidated for presumed better performance.
+The calls at the end of each both reference the next subroutine, LAB_CODE_01cb, and LAB_CODE_01d4 which is the same.
 CODE:016e  9aef            ANL         P2,#0xef           23ef            MOV         A,#0xef                                   
 CODE:0170  fd              MOV         A,R5               5d              ANL         A,R5                       
 CODE:0171  53df            ANL         A,#0xdf            3a              OUTL        P2,A                                 
@@ -109,3 +110,33 @@ CODE:01cf                                                 ad              MOV   
 CODE:01d0                                                 c5              SEL         RB0                                     
 CODE:01d1                                                 fd              MOV         A,R5                                    
 CODE:01d2                                                 12d7            JB0x0       LAB_CODE_01d7 
+
+//The next 3 subroutines are the same in each, only differring in address calls due to space saved in the bulk of the code in 8048.
+LAB_CODE_01db                                             LAB_CODE_01e4
+e8db            DJNZ        R0,LAB_CODE_01db              e8e4            DJNZ        R0,LAB_CODE_01e4          
+
+9adf            ANL         P2,#0xdf                      fd              MOV         A,R5                                    
+                                                          53df            ANL         A,#0xdf                                 
+                                                          3a              OUTL        P2,A  
+                                                           
+c5              SEL         RB0                           c5              SEL         RB0 
+
+
+LAB_CODE_01e0:                                            LAB_CODE_01eb:
+53fd            ANL         A,#0xfd                                 
+                                                          fd              MOV         A,R5                                    
+                                                          53fd            ANL         A,#0xfd                                 
+                                                          ad              MOV         R5,A                                    
+                                                          d5              SEL         RB1 
+
+8a20            ORL         P2,#0x20                                
+ad              MOV         R5,A                          fd              MOV         A,R5                                    
+                                                          4320            ORL         A,#0x20                                 
+                                                          3a              OUTL        P2,A          
+
+24cb            JMP         LAB_CODE_01cb                 24d4            JMP         LAB_CODE_01d4
+
+
+
+
+
