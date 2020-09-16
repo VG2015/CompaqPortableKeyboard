@@ -123,16 +123,18 @@ c5              SEL         RB0                           c5              SEL   
 
 
 LAB_CODE_01e0:                                            LAB_CODE_01eb:
-53fd            ANL         A,#0xfd                                 
-                                                          fd              MOV         A,R5                                    
-                                                          53fd            ANL         A,#0xfd                                 
+                                                          fd              MOV         A,R5
+                                                          
+53fd            ANL         A,#0xfd                       53fd            ANL         A,#0xfd                                            
+                                                          
                                                           ad              MOV         R5,A                                    
                                                           d5              SEL         RB1 
-
-8a20            ORL         P2,#0x20                                
-ad              MOV         R5,A                          fd              MOV         A,R5                                    
+                                                          fd              MOV         A,R5 
+                                                          
                                                           4320            ORL         A,#0x20                                 
-                                                          3a              OUTL        P2,A          
+8a20            ORL         P2,#0x20                      3a              OUTL        P2,A         
+
+ad              MOV         R5,A                                  
 
 24cb            JMP         LAB_CODE_01cb                 24d4            JMP         LAB_CODE_01d4
 
