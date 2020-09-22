@@ -1,23 +1,11 @@
-                            ;************************************************************************************************
-                            ;*                                           FUNCTION                                           *
-                            ;************************************************************************************************
-                            ;undefined RESET()
                                                           ;XREF[1,0]:   Entry Point
 CODE:CODE:0000  27              CLR         A                                       
 CODE:CODE:0001  043c            JMP         LAB_CODE_003c                           
-                            ;************************************************************************************************
-                            ;*                                           FUNCTION                                           *
-                            ;************************************************************************************************
-                            ;undefined EXTIRQ()
                                                           ;XREF[1,0]:   Entry Point
 CODE:CODE:0003  00              NOP                                                  
 CODE:CODE:0004  00              NOP                                                  
 CODE:CODE:0005  00              NOP                                                  
 CODE:CODE:0006  00              NOP                                                  
-                            ;************************************************************************************************
-                            ;*                                           FUNCTION                                           *
-                            ;************************************************************************************************
-                            ;undefined TIMIRQ()
                                                           ;XREF[1,0]:   Entry Point
 CODE:CODE:0007  d5              SEL         RB1                                     
 CODE:CODE:0008  aa              MOV         R2,A                                    
@@ -64,9 +52,6 @@ CODE:CODE:0035  1637            JTF         LAB_CODE_0037
 CODE:CODE:0037  143b            CALL        FUN_CODE_003b                           ;undefined FUN_CODE_003b()
                                                                                     ;= ??
 CODE:CODE:0039  043c            JMP         LAB_CODE_003c                           
-                            ;************************************************************************************************
-                            ;*                                           FUNCTION                                           *
-                            ;************************************************************************************************
                             ;undefined FUN_CODE_003b()
                                                           ;XREF[1,0]:   CODE:0037
 CODE:CODE:003b  93              RETR                                                 
@@ -74,21 +59,22 @@ CODE:CODE:003b  93              RETR
 CODE:CODE:003c  b83f            MOV         R0,#0x3f                                
                             LAB_CODE_003e:                ;XREF[1,0]:   CODE:003f
                                                           ; FWD[2,0]:   INTMEM:3e,INTMEM:3f
-CODE:CODE:003e  a0              MOV         @R0=>INTMEM:DAT_INTMEM_3f,A             ;= ??
-CODE:CODE:003f  e83e            DJNZ        R0,LAB_CODE_003e                        
-CODE:CODE:0041  b910            MOV         R1,#0x10                                
-CODE:CODE:0043  b81f            MOV         R0,#0x1f                                
-CODE:CODE:0045  23a0            MOV         A,#0xa0                                 
-CODE:CODE:0047  62              MOV         T,A                                     
-CODE:CODE:0048  55              STRT        T                                       
-CODE:CODE:0049  25              EN          TCNTI                                   
-CODE:CODE:004a  d5              SEL         RB1                                     
-CODE:CODE:004b  bdf0            MOV         R5,#0xf0                                
-CODE:CODE:004d  be2c            MOV         R6,#0x2c                                
-CODE:CODE:004f  bf2c            MOV         R7,#0x2c                                
-CODE:CODE:0051  c5              SEL         RB0                                     
-CODE:CODE:0052  23aa            MOV         A,#0xaa                                 
-CODE:CODE:0054  5400            CALL        FUN_CODE_0200                           ;undefined FUN_CODE_0200()
+CODE:CODE:003e  a0              MOV         @R0=>INTMEM:DAT_INTMEM_3f,A   ;Clear 64B RAM
+CODE:CODE:003f  e83e            DJNZ        R0,LAB_CODE_003e        ;Including Registers
+CODE:CODE:0041  b910            MOV         R1,#0x10     ;Initialize Registers 0-1, why?
+CODE:CODE:0043  b81f            MOV         R0,#0x1f                               
+CODE:CODE:0045  23a0            MOV         A,#0xa0      ;Start Counter at 160, then enable
+CODE:CODE:0047  62              MOV         T,A          ;Timer/Counter Interrupt
+CODE:CODE:0048  55              STRT        T            
+CODE:CODE:0049  25              EN          TCNTI        
+CODE:CODE:004a  d5              SEL         RB1          ;Initialize Reg Bank 1,
+CODE:CODE:004b  bdf0            MOV         R5,#0xf0     ;Registers 5-7
+CODE:CODE:004d  be2c            MOV         R6,#0x2c     
+CODE:CODE:004f  bf2c            MOV         R7,#0x2c     
+CODE:CODE:0051  c5              SEL         RB0          
+CODE:CODE:0052  23aa            MOV         A,#0xaa      
+CODE:CODE:0054  5400            CALL        FUN_CODE_0200
+;undefined FUN_CODE_0200()
                             LAB_CODE_0056:                ;XREF[3,0]:   CODE:0063,CODE:0071,CODE:0082
 CODE:CODE:0056  18              INC         R0                                      
                             LAB_CODE_0057:                ;XREF[1,0]:   CODE:0133
@@ -418,9 +404,6 @@ CODE:CODE:01e0  53fd            ANL         A,#0xfd
 CODE:CODE:01e2  8a20            ORL         P2,#0x20                                
 CODE:CODE:01e4  ad              MOV         R5,A                                    
 CODE:CODE:01e5  24cb            JMP         LAB_CODE_01cb                           
-                            ;************************************************************************************************
-                            ;*                                           FUNCTION                                           *
-                            ;************************************************************************************************
                             ;undefined FUN_CODE_01e7()
                                                           ;XREF[2,0]:   CODE:0061,CODE:006b
 CODE:CODE:01e7  f8              MOV         A,R0                                    
@@ -447,9 +430,6 @@ CODE:CODE:01fc  00              ??          00h
 CODE:CODE:01fd  00              ??          00h                                     
 CODE:CODE:01fe  00              ??          00h                                     
 CODE:CODE:01ff  00              ??          00h                                     
-                            ;************************************************************************************************
-                            ;*                                           FUNCTION                                           *
-                            ;************************************************************************************************
                             ;undefined FUN_CODE_0200()
                                                           ;XREF[4,0]:   CODE:0054,CODE:00b8,CODE:00ee,CODE:0143
 CODE:CODE:0200  d5              SEL         RB1                                     
